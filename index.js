@@ -97,21 +97,19 @@ bircumle=cumleKur("Ben"," iyi"," bir"," yazılımcı"," olacağım!");
 		cumlelereDonustur fonksiyonuna aşağıdaki yönergeleri uygulayın.
 			1. `cumleler` adındaki dizi fonksiyonun BİRİNCİ parametresi olarak alınacak.
 			2. Kelime aralarındaki ayraç(seperator) olarak kullanılmak üzere bir string değişkeni fonksiyonun İKİNCİ parametresi olarak alınacak. Ayraç parametresine "," değerini ön tanımlı yapmanız beklenmektedir.
-			3. Dizinin içindeki her dizi elemanı 1 cümle oluşturacak şekilde uc uca eklenecek, kelimelerin aralarına 3. parametrede girilen ayraç yerleştirilecek;
+			3. Dizinin içindeki her dizi elemanı 1 cümle oluşturacak şekilde uc uca eklenecek, kelimelerin aralarına 2. parametrede girilen ayraç yerleştirilecek;
 				NOT: cumlelereDonustur(cumleler, " ") fonksiyonu çağırıldığında şu dizinin oluşturacağı cümle: ["Annem","ekmek","almak","için","gitti."] => "Annem ekmek almak için gitti." şeklinde olmalıdır. 
 				💡 İPUCU: Bu çalışmada cümleleri kolay oluşturmak için .map ve .join metodunu bir arada kullanmanız gerekmektedir. 
 			4. Oluşturulan her cümle yeni bir dizi oluşturulup o dizinin içine aktarılacak. 
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 	
-let ayrac =" ";
+function cumlelereDonustur(cb_cumleler,ayrac = ","){
 
-function cumlelereDonustur(cb_cumleler, cb_ayrac){
-
-	let cumle =	 cb_cumleler.map((item) => item.join(cb_ayrac));
+	let cumle =	 cb_cumleler.map((item) => item.join(ayrac));
 		return cumle;
 }		
-	console.log(cumlelereDonustur(cumleler,ayrac));
+	console.log(cumlelereDonustur(cumleler," "));
 		
 
 /* GÖREV 2:
@@ -157,11 +155,6 @@ console.log(sebzeler);
 
 
 
-
-
-
-
-
 /* 			3c. manav isminde bir dizi oluşturun.`meyveler` dizisi ilk elemanlara, `sebzeler` dizisi son elemanlara denk gelecek şekilde,
  iki diziyi birleştirip sonucu manav dizisine aktarın. (.concat metodu)
 	*/
@@ -171,8 +164,6 @@ console.log(sebzeler);
 var manav;
 manav=meyveler.concat(sebzeler);
 console.log(manav);
-
-
 
 
 
@@ -190,7 +181,13 @@ console.log(manav);
 		
 			
 function emojileriDonustur(mesaj,cb_emojiler){
+for (let a in cb_emojiler) {
+	mesaj=mesaj.replaceAll(a.toUpperCase(),cb_emojiler[a]);
+	mesaj=mesaj.replaceAll(a.toLowerCase(),cb_emojiler[a]);
+	}
+	return mesaj;
 }
+
 
 
 
